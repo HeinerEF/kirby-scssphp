@@ -13,7 +13,7 @@ You can change these roles in the *config* via the `heineref.scssphp.scssDevelop
 
 It is also possible to use a SCSS file for other media by adding another call such as "`<?php snippet('scss', ['scss' => 'print', 'media' => 'print']); ?>`" into the invisible <HEAD\> area of the website.
 
-This Kirby plugin uses the scssphp library https://scssphp.github.io/scssphp/ written in PHP, which was originally developed by Leaf Corcoran and is now maintained by *Anthon Pang* and *Cédric Morin*.
+This Kirby plugin uses the scssphp library https://scssphp.github.io/scssphp/ written in PHP, which was originally developed by *Leaf Corcoran* and is now maintained by *Anthon Pang* and *Cédric Morin*.
 
 **Optionally** you can use this Kirby plugin to generate '*critical CSS*'. Please look at *`README_critical_CSS.md`* for details.
 
