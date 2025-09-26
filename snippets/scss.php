@@ -6,7 +6,8 @@
  * @co-author HeinerEF
  * @link      https://github.com/HeinerEF/kirby-scssphp
  * @return    CSS and HTML
- * @version   1.0.3
+ * @version   1.0.3.2
+ * @update    2025-09-26 by HeinerEF (use 'composer' to install ScssPhp)
  * @update    2025-09-13 by HeinerEF (use 'composer' to update ScssPhp)
  */
 
@@ -15,7 +16,7 @@ use ScssPhp\ScssPhp\Version;
 
 $scssphpVersion = Version::VERSION;
 
-$version ='"SCSSPHP plugin" (v1.0.3/13.09.2025) and "ScssPhp" (v'.$scssphpVersion.')';
+$version ='"SCSSPHP plugin" (v1.0.3.2/26.09.2025) and "ScssPhp" (v'.$scssphpVersion.')';
 
 if(!isset($scss)) $scss = ''; // no "scss" template given
 
@@ -168,7 +169,7 @@ $SCSSFileTime = filemtime($SCSS);
 // Update CSS when needed.
 if((!file_exists($minCSS)) or ($SCSSFileTime > $CSSFileTime) or ($IsDeveloper AND option('heineref.scssphp.scssDevelopment', false))) {
 
-  ecco (($IsDeveloper AND option('heineref.scssphp.scssDevelopment')), '<!-- CSS is build EVERY time ($IsDeveloper AND ("scssDevelopment" == TRUE)) !!!) -->' . "\n  ");
+  e (($IsDeveloper AND option('heineref.scssphp.scssDevelopment')), '<!-- CSS is build EVERY time ($IsDeveloper AND ("scssDevelopment" == TRUE)) !!!) -->' . "\n  ");
   if($Echo4Developer) {
     echo '<!-- update of CSS has to be done: age difference = ' . ($SCSSFileTime - $CSSFileTime) . " > 0! -->\n  ";
   }
@@ -177,11 +178,16 @@ if((!file_exists($minCSS)) or ($SCSSFileTime > $CSSFileTime) or ($IsDeveloper AN
   $stamp  = '/* Last update ' . date("Y-m-d H:i:s P") . ' by ' . $version . ' */' . "\n";
   $stamp2 = '/* Last update ' . date("Y-m-d H:i:s P") . ' by scssphp */' . "\n";
 
-
-  $librarypath = realpath(__DIR__ . '/../vendor/scssphp/scssphp/scss.inc.php'); // changed for composer-version by HeinerEF
+  $librarypath1 = realpath(__DIR__ . '/../vendor/scssphp/scssphp/scss.inc.php'); // this plugin is ONLY downloaded
+  $librarypath2 = realpath($root . '/vendor/scssphp/scssphp/scss.inc.php');      // this plugin is installed via composer
+  if (file_exists($librarypath2)) {
+    $librarypath = $librarypath2;
+  } else {
+    $librarypath = $librarypath1;
+  };
 
   // Activate library.
-  require_once $librarypath;
+  require_once $librarypath; // changed for composer-version by HeinerEF
 
   $parser = new Compiler();
 
@@ -260,4 +266,4 @@ if((!file_exists($minCSS)) or ($SCSSFileTime > $CSSFileTime) or ($IsDeveloper AN
 if(!isset($media)) $media = ''; // no "media" given as snippet-option, e.g. "snippet('scss', array('scss' => 'print.scss', 'media' => 'print'));" for file 'print.scss' with medium 'print'
 
 ?>
-<link rel="stylesheet" href="<?php echo url(r(($IsDeveloper OR $AlwaysShowScss), $devCSSKirbyPath, $minCSSKirbyPath)); ?>?version=<?php echo $CSSFileTime; ?>" type="text/css"<?php ecco(($media <> ''), ' media="' . $media . '"'); ?>><?php ecco(($IsDeveloper), '<!-- css-version = ' . date("Y-m-d H:i:s P", $CSSFileTime) . ' by ' . $version . ' -->'); echo  "\n"; ?>
+<link rel="stylesheet" href="<?php echo url(r(($IsDeveloper OR $AlwaysShowScss), $devCSSKirbyPath, $minCSSKirbyPath)); ?>?version=<?php echo $CSSFileTime; ?>" type="text/css"<?php e(($media <> ''), ' media="' . $media . '"'); ?>><?php e(($IsDeveloper), '<!-- css-version = ' . date("Y-m-d H:i:s P", $CSSFileTime) . ' by ' . $version . ' -->'); echo  "\n"; ?>

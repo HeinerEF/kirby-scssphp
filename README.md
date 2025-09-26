@@ -1,6 +1,6 @@
 # SCSSPHP Plugin
 
-The **SCSSPHP** plugin for Kirby creates the corresponding "**\*.css** file" from a "**\*.scss** file" and automatically integrates it into the invisible <HEAD\> area of the website via the stylesheet link `<?php snippet('scss') ?>` line.
+The **SCSSPHP plugin** for Kirby creates the corresponding "**\*.css** file" from a "**\*.scss** file" and automatically integrates it into the invisible <HEAD\> area of the website via the stylesheet link `<?php snippet('scss') ?>` line.
 The "**\*.scss** file" can, of course, include any number of additional "**\*.scss** files" using *`@import "..."`* in accordance with the Sass rules, which are also evaluated by the plugin.
 
 The plugin can automatically detect whether one of the "**\*.scss** files" used has been changed and then regenerates the "**\*.css** file." Otherwise, only the stylesheet link line with the last generated "**\*.css** file" is provided.
@@ -13,7 +13,7 @@ You can change these roles in the *config* via the `heineref.scssphp.scssDevelop
 
 It is also possible to use a SCSS file for other media by adding another call such as "`<?php snippet('scss', ['scss' => 'print', 'media' => 'print']); ?>`" into the invisible <HEAD\> area of the website.
 
-This Kirby plugin uses the scssphp library https://scssphp.github.io/scssphp/ written in PHP, which was originally developed by *Leaf Corcoran* and is now maintained by *Anthon Pang* and *Cédric Morin*.
+This Kirby plugin uses the **SCSSPHP library** https://scssphp.github.io/scssphp/ written in PHP, which was originally developed by *Leaf Corcoran* and is now maintained by *Anthon Pang* and *Cédric Morin*.
 
 **Optionally** you can use this Kirby plugin to generate '*critical CSS*'. Please look at *`README_critical_CSS.md`* for details.
 
@@ -23,13 +23,14 @@ This Kirby plugin uses the scssphp library https://scssphp.github.io/scssphp/ wr
 
 [Download](https://github.com/heineref/kirby-scssphp/archive/master.zip) the contents of this repository as Zip file.
 
+
 Rename the **extracted** folder to `heineref_scssphp` and copy it into the `site/plugins/` directory in your Kirby project.
 This file `README.md` therefore receives the path `site/plugins/heineref_scssphp/README.md`.
 
 ### Git submodule
 
 ```
-git submodule add https://github.com/heineref/scssphp.git site/plugins/heineref_scssphp
+git submodule add https://github.com/heineref/kirby-scssphp.git site/plugins/heineref_scssphp
 ```
 
 ### Composer
@@ -44,7 +45,7 @@ composer require heineref/scssphp
 2. Create a folder `scss` inside the `/assets` folder.
 3. Create a file `default.scss` with some content and place it inside `assets/scss`.
 4. Make sure the folder `/assets/css` exists on your server.
-5. Add `'scssNestedCheck' => true` to the config of your dev environment. [Read more about multi environment setup for Kirby](https://getkirby.com/docs/guide/configuration#multi-environment-setup).
+5. Add `'scssNestedCheck' => true` to the config of your **dev environment**. [Read more about multi environment setup for Kirby](https://getkirby.com/docs/guide/configuration#multi-environment-setup).
 6. Call the SCSS snippet with `<?php snippet('scss') ?>` in your HTML head.
 
 ## Using SCSS plugin
@@ -57,19 +58,19 @@ All options require **`heineref.scssphp.`** as prefix.
 
 **`scssNestedCheck`**
 
-- default: `false`
-- If true, the plugin checks if partials are changed. If any partial is newer than the main SCSS file, the main SCSS file will be 'touched'. This will trigger the compiler, on this server and also an another environment when synced.
-- Look at `Setup 5.`
+    - default: `false`
+    - If true, the plugin checks if partials are changed. If any partial is newer than the main SCSS file, the main SCSS file will be 'touched'. This will trigger the compiler, on this server and also an another environment when synced.
+    - Look at "`Setup 5.`" for details!
 
 **`scssDeveloperRoles`**
 
-- default: `['admin']`
-- Only these roles use the **NOT minified** CSS and can access the corresponding SourceMap.
+    - default: `['admin']`
+    - Only these roles use the **NOT minified** CSS and can access the corresponding SourceMap.
 
 **`scssDevelopment`**
 
-- default: `false`
-- If true, the CSS file is build EVERY time the **SCSSPHP** plugin runs
+    - default: `false`
+    - If true, the CSS file is build EVERY time the **SCSSPHP** plugin runs
 
 ## Compatibility
 
@@ -87,7 +88,7 @@ However, this will take some longer time. A pull request at https://github.com/H
 
 ## Requirements
 
-This plugin was built using **Kirby 5.x**. 
+This plugin was built using **Kirby 5.x** and tested with **Kirby 4.x**. 
 
 It may work with earlier versions. Otherwise, take a look at https://github.com/bartvandebiezen/kirby-v2-scssphp
 
