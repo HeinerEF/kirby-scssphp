@@ -84,7 +84,7 @@ Please note that the used version of the **scssphp** compiler is not yet fully c
 
 I plan to upgrade to version 2.x of the **scssphp** compiler. However, this requires a complete overhaul of the snippets `snippets/scss.php` and `snippets/scss.critical.php`, as the call to the **scssphp** compiler and the transfer of paths and options have changed completely with this version change.
 
-However, this will take some longer time. A pull request at https://github.com/HeinerEF/kirby-scssphp/pulls would be welcome.
+However, this will take some longer time.
 
 ## Requirements
 
