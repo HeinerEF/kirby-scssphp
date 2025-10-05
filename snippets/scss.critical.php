@@ -6,7 +6,8 @@
  * @co-author HeinerEF
  * @link      https://github.com/HeinerEF/kirby-scssphp
  * @return    CSS and HTML
- * @version   1.0.3.2
+ * @version   1.13.0.3
+ * @update    2025-10-05 by HeinerEF (some minor changes)
  * @update    2025-09-26 by HeinerEF (use 'composer' to install ScssPhp)
  * @update    2025-09-14 by HeinerEF (build 'Critical SCSS Snippet')
  * @update    2025-09-13 by HeinerEF (use 'composer' to update ScssPhp)
@@ -17,7 +18,7 @@ use ScssPhp\ScssPhp\Version;
 
 $scssphpVersion = Version::VERSION;
 
-$version ='"SCSSPHP plugin" (v1.0.3.2/26.09.2025) and "ScssPhp" (v'.$scssphpVersion.')';
+$version ='"SCSSPHP plugin" (v1.13.0.3) and "ScssPhp" (v'.$scssphpVersion.')';
 
 if(!isset($scss)) $scss = ''; // no "scss" template given
 
@@ -27,7 +28,7 @@ $EchoSourceMap = FALSE; // default
 $Echo4DeveloperExendend = FALSE; // default
 $AlwaysShowScss = FALSE; // or: ($_SERVER['REMOTE_ADDR'] === '127.0.0.1'); // User is local
 if($user = $kirby->user()) {
-  $IsDeveloper = (in_array($user->role()->id(), option('heineref.scssphp.scssDeveloperRoles', array('admin')))); // only these roles use the NOT minified CSS.
+  $IsDeveloper = (in_array($user->role()->id(), option('HeinerEF.scssphp.scssDeveloperRoles', array('admin')))); // only these roles use the NOT minified CSS.
 };
 
 # $Echo4Developer = $IsDeveloper;         // activate this line only for debugging of 'site/snippets/scss.php'.
@@ -99,7 +100,7 @@ if(file_exists($minCSS)) {
 
 // For when the plugin should check if partials are changed. If any partial is newer than the main SCSS file, the main SCSS file will be 'touched'.
 // This will trigger the compiler later on, on this server and also an another environment when synced.
-if(option('heineref.scssphp.scssNestedCheck') AND file_exists($minCSS)) { // css is build automatically, if the css file does not exists. Then drop this check.
+if(option('HeinerEF.scssphp.scssNestedCheck') AND file_exists($minCSS)) { // css is build automatically, if the css file does not exists. Then drop this check.
   $touched = false; // default
   $SCSSDirectory = $root . '/assets/scss/';
   $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($SCSSDirectory, FilesystemIterator::SKIP_DOTS));
@@ -171,9 +172,9 @@ if(option('heineref.scssphp.scssNestedCheck') AND file_exists($minCSS)) { // css
 $SCSSFileTime = filemtime($SCSS);
 
 // Update CSS when needed.
-if((!file_exists($minCSS)) or ($SCSSFileTime > $CSSFileTime) or ($IsDeveloper AND option('heineref.scssphp.scssDevelopment', false))) {
+if((!file_exists($minCSS)) or ($SCSSFileTime > $CSSFileTime) or ($IsDeveloper AND option('HeinerEF.scssphp.scssDevelopment', false))) {
 
-  e (($IsDeveloper AND option('heineref.scssphp.scssDevelopment')), '<!-- CSS is build EVERY time ($IsDeveloper AND ("scssDevelopment" == TRUE)) !!!) -->' . "\n  ");
+  e (($IsDeveloper AND option('HeinerEF.scssphp.scssDevelopment')), '<!-- CSS is build EVERY time ($IsDeveloper AND ("scssDevelopment" == TRUE)) !!!) -->' . "\n  ");
   if($Echo4Developer) {
     echo '<!-- update of CSS has to be done: age difference = ' . ($SCSSFileTime - $CSSFileTime) . " > 0! -->\n  ";
   }
