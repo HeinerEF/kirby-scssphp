@@ -7,7 +7,7 @@ As an option, you can use this plugin to create '**critical CSS**'.
 
 ## Critical SCSS (a.k.a. above the fold)
 
-If you would like to improve the performance of your website, you can use the 'scss.critical.php' in combination with the 'scss.php' snippet. This part of the plugin is optional and still experimental. Using critical CSS means inlining any CSS that is used to render content directly visible when you open a page.
+If you would like to improve the performance of your website, you can use the 'scss.critical.php' snippet in combination with the "**normal**" 'scss.php' snippet. This *critical* part of the plugin is optional and still experimental. Using critical CSS means inlining any CSS that is used to render content directly visible when you open a page.
 Before you start using critical CSS, my advice is to read more about this concept on [CSS Tricks](https://css-tricks.com/authoring-critical-fold-css/) or [Google PageSpeed Insights](https://developers.google.com/speed/docs/insights/PrioritizeVisibleContent).
 
 ## Setup the Critical SCSS
