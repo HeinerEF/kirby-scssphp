@@ -83,7 +83,7 @@ Sass is a **CSS** preprocessor language that adds many features such as variable
 
 For a complete guide to the syntax of Sass, please consult the [official documentation](https://sass-lang.com/documentation).
 
-Please note that the used version of the **SCSSPHP compiler** is not yet fully compatible with the Sass specification. Sass modules are also not yet implemented.
+Please note that the used version of the **SCSSPHP compiler** (v.1.13.0) is not yet fully compatible with the Sass specification. Sass modules are also not yet implemented.
 
 
 ## Prospects
