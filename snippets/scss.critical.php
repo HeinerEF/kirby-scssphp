@@ -6,9 +6,8 @@
  * @co-author HeinerEF
  * @link      https://github.com/HeinerEF/kirby-scssphp
  * @return    CSS and HTML
- * @version   2.0.1-beta5
- * @update    2025-10-18 by HeinerEF (some minor changes)
- * @update    2025-09-27 by HeinerEF (use 'scssphp library' v >= 2.0)
+ * @version   1.13.0.3
+ * @update    2025-10-05 by HeinerEF (some minor changes)
  * @update    2025-09-26 by HeinerEF (use 'composer' to install ScssPhp)
  * @update    2025-09-14 by HeinerEF (build 'Critical SCSS Snippet')
  * @update    2025-09-13 by HeinerEF (use 'composer' to update ScssPhp)
@@ -19,7 +18,7 @@ use ScssPhp\ScssPhp\Version;
 
 $scssphpVersion = Version::VERSION;
 
-$version ='"SCSSPHP plugin" (v2.0.1-beta5) and "ScssPhp" (v'.$scssphpVersion.')';
+$version ='"SCSSPHP plugin" (v1.13.0.3) and "ScssPhp" (v'.$scssphpVersion.')';
 
 if(!isset($scss)) $scss = ''; // no "scss" template given
 
@@ -184,10 +183,21 @@ if((!file_exists($minCSS)) or ($SCSSFileTime > $CSSFileTime) or ($IsDeveloper AN
   $stamp  = '/* Last update ' . date("Y-m-d H:i:s P") . ' by ' . $version . ' */' . "\n";
   $stamp2 = '/* Last update ' . date("Y-m-d H:i:s P") . ' by scssphp */' . "\n";
 
+  $librarypath1 = realpath(__DIR__ . '/../vendor/scssphp/scssphp/scss.inc.php'); // this plugin is ONLY downloaded
+  $librarypath2 = realpath($root . '/vendor/scssphp/scssphp/scss.inc.php');      // this plugin is installed via composer
+  if (file_exists($librarypath2)) {
+    $librarypath = $librarypath2;
+  } else {
+    $librarypath = $librarypath1;
+  };
+
+  // Activate library.
+  require_once $librarypath; // changed for composer-version by HeinerEF
+
   $parser = new Compiler();
 
   // Setting compression provided by library.
-  $parser->setOutputStyle(\ScssPhp\ScssPhp\OutputStyle::EXPANDED);   // for easier debugging of the CSS, if CSS is NOT minified.
+  $parser->setFormatter('ScssPhp\ScssPhp\Formatter\Expanded');   // for easier debugging of the CSS, if CSS is NOT minified.
 
   // Setting relative @import paths.
   $importPath = $root . '/assets/scss';
@@ -199,15 +209,15 @@ if((!file_exists($minCSS)) or ($SCSSFileTime > $CSSFileTime) or ($IsDeveloper AN
   $sourceMapFilename = basename($devCSS);           // url location of .css file // an optional name of the generated code that this source map is associated with.
   $sourceRoot        = '../scss/';                  // basename
 
-  $parser->setSourceMap(Compiler::SOURCE_MAP_FILE); // = output .map file
-
   $parser->setSourceMapOptions(array (
       'sourceMapBasepath' => $sourceMapBasepath,   // base path for filename normalization
       'sourceMapURL'      => $sourceMapURL,        // url of the map
+      'sourceMapWriteTo'  => $sourceMapWriteTo,    // absolute path to a file to write the map to
       'sourceMapFilename' => $sourceMapFilename,   // an optional name of the generated code that this source map is associated with.
       'sourceRoot'        => $sourceRoot,          // an optional source root, useful for relocating source files on a server or removing repeated values
                                                    // in the 'sources' entry. This value is prepended to the individual entries in the 'source' field.
   ));
+  $parser->setSourceMap(Compiler::SOURCE_MAP_FILE); // = output .map file
 
   if($EchoSourceMap) {
     echo '<!-- sourceMapWriteTo  = sourceMapBasepath + sourceMapURL' . " -->\n  ";
@@ -219,12 +229,11 @@ if((!file_exists($minCSS)) or ($SCSSFileTime > $CSSFileTime) or ($IsDeveloper AN
        . '                         repeated values in the "sources" entry. This value is prepended by the browser to the individual entries in the "source" field.' . " -->\n  ";
   };
 
-  $result = $parser->compileFile($SCSS);
-
-  file_put_contents($sourceMapWriteTo, $result->getSourceMap());
+  // Place SCSS file in buffer.
+  $buffer = file_get_contents($SCSS);
 
   // Compile content in buffer.
-  $buffer = $result->getCss();
+  $buffer = $parser->compile($buffer, $SCSS); // added ", $SCSS" on 2018-01-03 by HeinerEF for first entry at "sources" in map-file
 
   // Update NOT minified CSS file.
   file_put_contents($devCSS, $stamp . $buffer);
