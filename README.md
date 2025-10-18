@@ -89,7 +89,7 @@ The new implementation v2.x of the **SCSSPHP compiler** is a port of *dart-sass*
 
 Unlike previous implementations of the **SCSSPHP plugin**, you can now update the **SCSSPHP compiler** independently of the **SCSSPHP plugin**, e.g. using Composer, as long as the compiler calls and data transfer remain unchanged.
 
-Please only update in your development environment!
+Please only perform the update in your development environment!
 
 ## Requirements
 
