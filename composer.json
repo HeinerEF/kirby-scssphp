@@ -2,8 +2,8 @@
   "name": "heineref/kirby-scssphp",
   "description": "This is a preprocessor for SCSS files to generate CSS files in Kirby. It uses the scssphp library https://scssphp.github.io/scssphp/. This Kirby plugin automatically processes SCSS files when they are changed. Optionally, you can use this Kirby plugin to generate 'Critical CSS'.",
   "type":    "kirby-plugin",
-  "version": "2.0.1-beta5",
-  "time":    "2025-10-18",
+  "version": "1.13.0.3",
+  "time":    "2025-10-05",
   "license": "MIT",
   "keywords": [
     "kirby5",
@@ -41,7 +41,7 @@
   },
   "require": {
     "getkirby/composer-installer": "^1.1",
-    "scssphp/scssphp":             "^2.0"
+    "scssphp/scssphp":             "^1.13"
   },
   "extra": {
     "installer-name": "heineref_scssphp"
