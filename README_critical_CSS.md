@@ -13,9 +13,9 @@ Before you start using critical CSS, my advice is to read more about this concep
 ## Setup the Critical SCSS
 
 1. Follow the instructions for installing and setup this plugin in the **main** *[README.md](README.md)*.
-2. Call the **Critical CSS snippet** with `<?php snippet("scss.critical") ?>` in your HTML head.
-3. Call the **SCSS snippet** with `<?php snippet("scss") ?>` **below** in your page footer **instead of** in your HTML head.
-4. Create a file `default.critical.scss` and place it inside `assets/scss`.
+2. Create a file `default.critical.scss` and place it inside `assets/scss`.
+3. Call the **Critical CSS snippet** with `<?php snippet("scss.critical") ?>` in your HTML head.
+4. Call the **SCSS snippet** with `<?php snippet("scss") ?>` **below** in your page footer **instead of** in your HTML head.
 
 ## Using Critical SCSS
 
