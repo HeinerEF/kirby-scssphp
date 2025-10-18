@@ -49,7 +49,7 @@ git submodule add https://github.com/heineref/kirby-scssphp.git site/plugins/hei
 3. Create a file `default.scss` with some content and place it inside `assets/scss`.
 4. Make sure the folder `/assets/css` exists on your server.
 5. Add `'scssNestedCheck' => true` to the config of your **dev environment**. [Read more about multi environment setup for Kirby](https://getkirby.com/docs/guide/configuration#multi-environment-setup).
-6. Call the SCSS snippet with `<?php snippet('scss') ?>` in your HTML \<HEAD\> area.
+6. Call the SCSS snippet with `<?php snippet('scss') ?>` in your HTML \<HEAD\>.
 
 
 ## Using SCSS plugin
