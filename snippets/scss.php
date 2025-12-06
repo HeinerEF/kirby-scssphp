@@ -6,7 +6,7 @@
  * @co-author HeinerEF
  * @link      https://github.com/HeinerEF/kirby-scssphp
  * @return    CSS and HTML
- * @version   2.0.1-beta5
+ * @version   2.0.1
  * @update    2025-10-18 by HeinerEF (some minor changes)
  * @update    2025-09-27 by HeinerEF (use 'scssphp library' v >= 2.0)
  * @update    2025-09-26 by HeinerEF (use 'composer' to install ScssPhp)
@@ -18,7 +18,7 @@ use ScssPhp\ScssPhp\Version;
 
 $scssphpVersion = Version::VERSION;
 
-$version ='"SCSSPHP plugin" (v2.0.1-beta5) and "ScssPhp" (v'.$scssphpVersion.')';
+$version ='"SCSSPHP plugin" (v2.0.1) and "ScssPhp" (v'.$scssphpVersion.')';
 
 if(!isset($scss)) $scss = ''; // no "scss" template given
 
