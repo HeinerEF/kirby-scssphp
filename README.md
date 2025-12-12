@@ -95,7 +95,9 @@ Please **only** update in your development environment!
 
 This plugin was built using **Kirby 5.x** and tested with **Kirby 4.x**.
 
-It may work with earlier versions. Otherwise, take a look at https://github.com/bartvandebiezen/kirby-v2-scssphp
+It may work with earlier versions. 
+
+Otherwise, take a look at https://github.com/bartvandebiezen/kirby-v2-scssphp
 
 
 ## Disclaimer
