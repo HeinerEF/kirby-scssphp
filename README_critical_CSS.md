@@ -21,7 +21,7 @@ Before you start using critical CSS, my advice is to read more about this concep
 
 Everything in `default.critical.scss` will be compiled and placed in your HTML head (not as a css-file but as css-code). All relative URLs in your critical SCSS will be automatically converted to the correct absolute URLs in your critical CSS.
 
-It is possible to create different SCSSs for each Kirby template. Just use the name of your template file for the SCSS file (e.g. `article.critical.scss` for `templates/article.php`), and place it in `assets/scss`. If no SCSS file for a template can be found, `default.critical.scss` will be used.
+It is possible to create different critical SCSSs for each Kirby template. Just use the name of your template file for the SCSS file (e.g. `article.critical.scss` for `templates/article.php`), and place it in `assets/scss`. If no SCSS file for a template can be found, `default.critical.scss` will be used.
 
 ## Hints
 
@@ -31,7 +31,5 @@ The critical SCSS **must be updated** after it has been uploaded *to another ser
 Therefore, after uploading, you should delete these files “**\*.critical.css**” generated with this `snippet("scss.critical")` **once** on the *another server*.
 
 In terms of **critical SCSS**, I recommend avoiding such non-resolvable files in order to prevent such reloading of css files!
-
-It is possible to create different critical SCSSs for each Kirby template. Just use the name of your template file for the critical SCSS file (e.g. 'article.critical.scss' for 'templates/article.php'), and place it in 'assets/scss'. If no critical SCSS file for a template can be found, 'default.critical.scss' will be used.
 
 My advice is not to remove any SCSS from your main SCSS file.
