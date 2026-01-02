@@ -28,7 +28,7 @@ It is possible to create different critical SCSSs for each Kirby template. Just 
 This plugin does not (yet) detect which CSS should be placed in your critical CSS. Therefor you need to manually place or import SCSS that will affect everything that has a large chance to be directly visible '*above the fold*' when loaded. Do not forget to include your SCSS utilities (e.g. mixins) and settings (i.e. global variables) in your critical SCSS file.
 
 The critical SCSS **must be updated** after it has been uploaded *to another server*. This is necessary because the absolute URLs in your critical CSS need to be updated.
-Therefore, after uploading, you should delete these files “**\*.critical.css**” generated with this `snippet("scss.critical")` **once** on the *another server* and geneate it new on the *another server*.
+Therefore, after uploading, you should delete these files “**\*.critical.css**” generated with this `snippet("scss.critical")` **once** on the *another server* and generate it new on the *another server*.
 
 In terms of **critical SCSS**, I recommend avoiding such non-resolvable files in order to prevent such reloading of css files!
 
