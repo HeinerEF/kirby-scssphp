@@ -1,6 +1,6 @@
 # Kirby Plugin: SCSSPHP
 
-![SCSSPHP plugin](docs/scssphp-plugin.png "security.txt in accordance with RFC 9116")
+![SCSSPHP plugin](docs/scssphp-plugin.png)
 
 The **SCSSPHP plugin** for Kirby creates the corresponding "**\*.css** file" from a "**\*.scss** file" and automatically integrates it into the invisible \<HEAD\> area of the website via the stylesheet link line `<?php snippet('scss') ?>`.
 The "**\*.scss** file" can, of course, include any number of additional "**\*.scss** files" using *`@import "..."`* in accordance with the Sass rules, which are also evaluated by the plugin.
