@@ -24,7 +24,7 @@ This Kirby plugin uses the **SCSSPHP compiler** https://github.com/scssphp/scssp
 
 ### Download
 
-[Download](https://github.com/heineref/kirby-scssphp/archive/master.zip) the contents of this repository as Zip file.
+[Download](https://github.com/HeinerEF/kirby-scssphp/archive/master.zip) the contents of this repository as Zip file.
 
 Rename the **extracted** folder to `heineref_scssphp` and copy it into the `site/plugins/` directory in your Kirby project. If it does not exist, create a new directory `site/plugins/` first.
 This file `README.md` therefore receives the path `site/plugins/heineref_scssphp/README.md`.
@@ -32,7 +32,7 @@ This file `README.md` therefore receives the path `site/plugins/heineref_scssphp
 ### Composer
 
 ```
-composer require heineref/kirby-scssphp
+composer require HeinerEF/kirby-scssphp
 ```
 
 ### Git submodule
@@ -40,7 +40,7 @@ composer require heineref/kirby-scssphp
 If you have used git in your project before:
 
 ```
-git submodule add https://github.com/heineref/kirby-scssphp.git site/plugins/heineref_scssphp
+git submodule add https://github.com/HeinerEF/kirby-scssphp.git site/plugins/heineref_scssphp
 ```
 
 
