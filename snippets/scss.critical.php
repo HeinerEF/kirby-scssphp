@@ -1,4 +1,5 @@
-<?php // site\plugins\heineref_scssphp\snippets\scss.critical.php
+<?php
+      // site\plugins\heineref_scssphp\snippets\scss.critical.php
 
 /**
  * Critical SCSS Snippet
